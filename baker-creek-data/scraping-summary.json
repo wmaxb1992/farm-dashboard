@@ -1,0 +1,23 @@
+{
+  "totalCategories": 3,
+  "totalSubcategories": 0,
+  "totalVarieties": 0,
+  "totalCultivars": 0,
+  "categoryBreakdown": {
+    "Vegetables": {
+      "subcategories": 0,
+      "varieties": 0,
+      "cultivars": 0
+    },
+    "Flowers": {
+      "subcategories": 0,
+      "varieties": 0,
+      "cultivars": 0
+    },
+    "Herbs": {
+      "subcategories": 0,
+      "varieties": 0,
+      "cultivars": 0
+    }
+  }
+}

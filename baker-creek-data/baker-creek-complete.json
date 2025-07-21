@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Vegetables",
+    "slug": "vegetables",
+    "description": "Heirloom vegetable seeds for delicious and nutritious crops",
+    "subcategories": []
+  },
+  {
+    "name": "Flowers",
+    "slug": "flowers",
+    "description": "Beautiful heirloom flower seeds for gardens and landscapes",
+    "subcategories": []
+  },
+  {
+    "name": "Herbs",
+    "slug": "herbs",
+    "description": "Aromatic and culinary herb seeds for cooking and medicinal use",
+    "subcategories": []
+  }
+]

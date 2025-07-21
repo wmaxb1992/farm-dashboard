@@ -1,0 +1,506 @@
+[
+  {
+    "name": "Amaranth",
+    "slug": "amaranth",
+    "type": "vegetable",
+    "url": "https://www.rareseeds.com/store/plants-seeds/vegetables/amaranth"
+  },
+  {
+    "name": "Artichoke Cardoon",
+    "slug": "artichoke-cardoon",
+    "type": "vegetable",
+    "url": "https://www.rareseeds.com/store/plants-seeds/vegetables/artichoke-cardoon"
+  },
+  {
+    "name": "Arugula",
+    "slug": "arugula",
+    "type": "vegetable",
+    "url": "https://www.rareseeds.com/store/plants-seeds/vegetables/arugula"
+  },
+  {
+    "name": "Asparagus",
+    "slug": "asparagus",
+    "type": "vegetable",
+    "url": "https://www.rareseeds.com/store/plants-seeds/vegetables/asparagus"
+  },
+  {
+    "name": "Barley",
+    "slug": "barley",
+    "type": "vegetable",
+    "url": "https://www.rareseeds.com/store/plants-seeds/vegetables/barley"
+  },
+  {
+    "name": "Beans",
+    "slug": "beans",
+    "type": "vegetable",
+    "url": "https://www.rareseeds.com/store/plants-seeds/vegetables/beans"
+  },
+  {
+    "name": "Beetroot",
+    "slug": "beetroot",
+    "type": "vegetable",
+    "url": "https://www.rareseeds.com/store/plants-seeds/vegetables/beetroot"
+  },
+  {
+    "name": "Bitter Melon",
+    "slug": "bitter-melon",
+    "type": "vegetable",
+    "url": "https://www.rareseeds.com/store/plants-seeds/vegetables/bitter-melon"
+  },
+  {
+    "name": "Bok Choy",
+    "slug": "bok-choy",
+    "type": "vegetable",
+    "url": "https://www.rareseeds.com/store/plants-seeds/vegetables/bok-choy"
+  },
+  {
+    "name": "Broccoli",
+    "slug": "broccoli",
+    "type": "vegetable",
+    "url": "https://www.rareseeds.com/store/plants-seeds/vegetables/broccoli"
+  },
+  {
+    "name": "Brussels Sprouts",
+    "slug": "brussels-sprouts",
+    "type": "vegetable",
+    "url": "https://www.rareseeds.com/store/plants-seeds/vegetables/brussels-sprouts"
+  },
+  {
+    "name": "Buckwheat",
+    "slug": "buckwheat",
+    "type": "vegetable",
+    "url": "https://www.rareseeds.com/store/plants-seeds/vegetables/buckwheat"
+  },
+  {
+    "name": "Cabbage",
+    "slug": "cabbage",
+    "type": "vegetable",
+    "url": "https://www.rareseeds.com/store/plants-seeds/vegetables/cabbage"
+  },
+  {
+    "name": "Carrots Seeds",
+    "slug": "carrots-seeds",
+    "type": "vegetable",
+    "url": "https://www.rareseeds.com/store/plants-seeds/vegetables/carrots-seeds"
+  },
+  {
+    "name": "Cauliflower",
+    "slug": "cauliflower",
+    "type": "vegetable",
+    "url": "https://www.rareseeds.com/store/plants-seeds/vegetables/cauliflower"
+  },
+  {
+    "name": "Celery",
+    "slug": "celery",
+    "type": "vegetable",
+    "url": "https://www.rareseeds.com/store/plants-seeds/vegetables/celery"
+  },
+  {
+    "name": "Chard",
+    "slug": "chard",
+    "type": "vegetable",
+    "url": "https://www.rareseeds.com/store/plants-seeds/vegetables/chard"
+  },
+  {
+    "name": "Chickpeas",
+    "slug": "chickpeas",
+    "type": "vegetable",
+    "url": "https://www.rareseeds.com/store/plants-seeds/vegetables/chickpeas"
+  },
+  {
+    "name": "Chicory",
+    "slug": "chicory",
+    "type": "vegetable",
+    "url": "https://www.rareseeds.com/store/plants-seeds/vegetables/chicory"
+  },
+  {
+    "name": "Chinese Cabbage",
+    "slug": "chinese-cabbage",
+    "type": "vegetable",
+    "url": "https://www.rareseeds.com/store/plants-seeds/vegetables/chinese-cabbage"
+  },
+  {
+    "name": "Collards",
+    "slug": "collards",
+    "type": "vegetable",
+    "url": "https://www.rareseeds.com/store/plants-seeds/vegetables/collards"
+  },
+  {
+    "name": "Corn",
+    "slug": "corn",
+    "type": "vegetable",
+    "url": "https://www.rareseeds.com/store/plants-seeds/vegetables/corn"
+  },
+  {
+    "name": "Cucumber",
+    "slug": "cucumber",
+    "type": "vegetable",
+    "url": "https://www.rareseeds.com/store/plants-seeds/vegetables/cucumber"
+  },
+  {
+    "name": "Eggplant",
+    "slug": "eggplant",
+    "type": "vegetable",
+    "url": "https://www.rareseeds.com/store/plants-seeds/vegetables/eggplant"
+  },
+  {
+    "name": "Endive",
+    "slug": "endive",
+    "type": "vegetable",
+    "url": "https://www.rareseeds.com/store/plants-seeds/vegetables/endive"
+  },
+  {
+    "name": "Fava Beans",
+    "slug": "fava-beans",
+    "type": "vegetable",
+    "url": "https://www.rareseeds.com/store/plants-seeds/vegetables/fava-beans"
+  },
+  {
+    "name": "Fennel",
+    "slug": "fennel",
+    "type": "vegetable",
+    "url": "https://www.rareseeds.com/store/plants-seeds/vegetables/fennel"
+  },
+  {
+    "name": "Garlic",
+    "slug": "garlic",
+    "type": "vegetable",
+    "url": "https://www.rareseeds.com/store/plants-seeds/vegetables/garlic"
+  },
+  {
+    "name": "Gourds",
+    "slug": "gourds",
+    "type": "vegetable",
+    "url": "https://www.rareseeds.com/store/plants-seeds/vegetables/gourds"
+  },
+  {
+    "name": "Ground Cherry",
+    "slug": "ground-cherry",
+    "type": "vegetable",
+    "url": "https://www.rareseeds.com/store/plants-seeds/vegetables/ground-cherry"
+  },
+  {
+    "name": "Kale",
+    "slug": "kale",
+    "type": "vegetable",
+    "url": "https://www.rareseeds.com/store/plants-seeds/vegetables/kale"
+  },
+  {
+    "name": "Kohlrabi",
+    "slug": "kohlrabi",
+    "type": "vegetable",
+    "url": "https://www.rareseeds.com/store/plants-seeds/vegetables/kohlrabi"
+  },
+  {
+    "name": "Leeks",
+    "slug": "leeks",
+    "type": "vegetable",
+    "url": "https://www.rareseeds.com/store/plants-seeds/vegetables/leeks"
+  },
+  {
+    "name": "Lettuce",
+    "slug": "lettuce",
+    "type": "vegetable",
+    "url": "https://www.rareseeds.com/store/plants-seeds/vegetables/lettuce"
+  },
+  {
+    "name": "Mache",
+    "slug": "mache",
+    "type": "vegetable",
+    "url": "https://www.rareseeds.com/store/plants-seeds/vegetables/mache"
+  },
+  {
+    "name": "Melons",
+    "slug": "melons",
+    "type": "vegetable",
+    "url": "https://www.rareseeds.com/store/plants-seeds/vegetables/melons"
+  },
+  {
+    "name": "Millet",
+    "slug": "millet",
+    "type": "vegetable",
+    "url": "https://www.rareseeds.com/store/plants-seeds/vegetables/millet"
+  },
+  {
+    "name": "Mustard Greens",
+    "slug": "mustard-greens",
+    "type": "vegetable",
+    "url": "https://www.rareseeds.com/store/plants-seeds/vegetables/mustard-greens"
+  },
+  {
+    "name": "Okra",
+    "slug": "okra",
+    "type": "vegetable",
+    "url": "https://www.rareseeds.com/store/plants-seeds/vegetables/okra"
+  },
+  {
+    "name": "Onions",
+    "slug": "onions",
+    "type": "vegetable",
+    "url": "https://www.rareseeds.com/store/plants-seeds/vegetables/onions"
+  },
+  {
+    "name": "Peas",
+    "slug": "peas",
+    "type": "vegetable",
+    "url": "https://www.rareseeds.com/store/plants-seeds/vegetables/peas"
+  },
+  {
+    "name": "Peppers",
+    "slug": "peppers",
+    "type": "vegetable",
+    "url": "https://www.rareseeds.com/store/plants-seeds/vegetables/peppers"
+  },
+  {
+    "name": "Potatoes",
+    "slug": "potatoes",
+    "type": "vegetable",
+    "url": "https://www.rareseeds.com/store/plants-seeds/vegetables/potatoes"
+  },
+  {
+    "name": "Pumpkins",
+    "slug": "pumpkins",
+    "type": "vegetable",
+    "url": "https://www.rareseeds.com/store/plants-seeds/vegetables/pumpkins"
+  },
+  {
+    "name": "Purslane",
+    "slug": "purslane",
+    "type": "vegetable",
+    "url": "https://www.rareseeds.com/store/plants-seeds/vegetables/purslane"
+  },
+  {
+    "name": "Quinoa",
+    "slug": "quinoa",
+    "type": "vegetable",
+    "url": "https://www.rareseeds.com/store/plants-seeds/vegetables/quinoa"
+  },
+  {
+    "name": "Radishes",
+    "slug": "radishes",
+    "type": "vegetable",
+    "url": "https://www.rareseeds.com/store/plants-seeds/vegetables/radishes"
+  },
+  {
+    "name": "Rhubarb",
+    "slug": "rhubarb",
+    "type": "vegetable",
+    "url": "https://www.rareseeds.com/store/plants-seeds/vegetables/rhubarb"
+  },
+  {
+    "name": "Rutabaga",
+    "slug": "rutabaga",
+    "type": "vegetable",
+    "url": "https://www.rareseeds.com/store/plants-seeds/vegetables/rutabaga"
+  },
+  {
+    "name": "Spinach",
+    "slug": "spinach",
+    "type": "vegetable",
+    "url": "https://www.rareseeds.com/store/plants-seeds/vegetables/spinach"
+  },
+  {
+    "name": "Squash Summer",
+    "slug": "squash-summer",
+    "type": "vegetable",
+    "url": "https://www.rareseeds.com/store/plants-seeds/vegetables/squash-summer"
+  },
+  {
+    "name": "Squash Winter",
+    "slug": "squash-winter",
+    "type": "vegetable",
+    "url": "https://www.rareseeds.com/store/plants-seeds/vegetables/squash-winter"
+  },
+  {
+    "name": "Sunflowers",
+    "slug": "sunflowers",
+    "type": "vegetable",
+    "url": "https://www.rareseeds.com/store/plants-seeds/vegetables/sunflowers"
+  },
+  {
+    "name": "Sweet Potatoes",
+    "slug": "sweet-potatoes",
+    "type": "vegetable",
+    "url": "https://www.rareseeds.com/store/plants-seeds/vegetables/sweet-potatoes"
+  },
+  {
+    "name": "Tomatillos",
+    "slug": "tomatillos",
+    "type": "vegetable",
+    "url": "https://www.rareseeds.com/store/plants-seeds/vegetables/tomatillos"
+  },
+  {
+    "name": "Tomatoes",
+    "slug": "tomatoes",
+    "type": "vegetable",
+    "url": "https://www.rareseeds.com/store/plants-seeds/vegetables/tomatoes"
+  },
+  {
+    "name": "Turnips",
+    "slug": "turnips",
+    "type": "vegetable",
+    "url": "https://www.rareseeds.com/store/plants-seeds/vegetables/turnips"
+  },
+  {
+    "name": "Watermelons",
+    "slug": "watermelons",
+    "type": "vegetable",
+    "url": "https://www.rareseeds.com/store/plants-seeds/vegetables/watermelons"
+  },
+  {
+    "name": "Wheat",
+    "slug": "wheat",
+    "type": "vegetable",
+    "url": "https://www.rareseeds.com/store/plants-seeds/vegetables/wheat"
+  },
+  {
+    "name": "Basil",
+    "slug": "basil",
+    "type": "herb",
+    "url": "https://www.rareseeds.com/store/plants-seeds/herbs/basil"
+  },
+  {
+    "name": "Bee Balm",
+    "slug": "bee-balm",
+    "type": "herb",
+    "url": "https://www.rareseeds.com/store/plants-seeds/herbs/bee-balm"
+  },
+  {
+    "name": "Borago",
+    "slug": "borago",
+    "type": "herb",
+    "url": "https://www.rareseeds.com/store/plants-seeds/herbs/borago"
+  },
+  {
+    "name": "Chamomile",
+    "slug": "chamomile",
+    "type": "herb",
+    "url": "https://www.rareseeds.com/store/plants-seeds/herbs/chamomile"
+  },
+  {
+    "name": "Chives",
+    "slug": "chives",
+    "type": "herb",
+    "url": "https://www.rareseeds.com/store/plants-seeds/herbs/chives"
+  },
+  {
+    "name": "Coriandrum",
+    "slug": "coriandrum",
+    "type": "herb",
+    "url": "https://www.rareseeds.com/store/plants-seeds/herbs/coriandrum"
+  },
+  {
+    "name": "Dill",
+    "slug": "dill",
+    "type": "herb",
+    "url": "https://www.rareseeds.com/store/plants-seeds/herbs/dill"
+  },
+  {
+    "name": "Bloody Dock",
+    "slug": "bloody-dock",
+    "type": "herb",
+    "url": "https://www.rareseeds.com/store/plants-seeds/herbs/bloody-dock"
+  },
+  {
+    "name": "Echinacea",
+    "slug": "echinacea",
+    "type": "herb",
+    "url": "https://www.rareseeds.com/store/plants-seeds/herbs/echinacea"
+  },
+  {
+    "name": "Fennel",
+    "slug": "fennel",
+    "type": "herb",
+    "url": "https://www.rareseeds.com/store/plants-seeds/herbs/fennel"
+  },
+  {
+    "name": "Lavender",
+    "slug": "lavender",
+    "type": "herb",
+    "url": "https://www.rareseeds.com/store/plants-seeds/herbs/lavender"
+  },
+  {
+    "name": "Lemon Balm",
+    "slug": "lemon-balm",
+    "type": "herb",
+    "url": "https://www.rareseeds.com/store/plants-seeds/herbs/lemon-balm"
+  },
+  {
+    "name": "Marjoram",
+    "slug": "marjoram",
+    "type": "herb",
+    "url": "https://www.rareseeds.com/store/plants-seeds/herbs/marjoram"
+  },
+  {
+    "name": "Mint",
+    "slug": "mint",
+    "type": "herb",
+    "url": "https://www.rareseeds.com/store/plants-seeds/herbs/mint"
+  },
+  {
+    "name": "Oregano",
+    "slug": "oregano",
+    "type": "herb",
+    "url": "https://www.rareseeds.com/store/plants-seeds/herbs/oregano"
+  },
+  {
+    "name": "Parsley",
+    "slug": "parsley",
+    "type": "herb",
+    "url": "https://www.rareseeds.com/store/plants-seeds/herbs/parsley"
+  },
+  {
+    "name": "Rosemary",
+    "slug": "rosemary",
+    "type": "herb",
+    "url": "https://www.rareseeds.com/store/plants-seeds/herbs/rosemary"
+  },
+  {
+    "name": "Rue",
+    "slug": "rue",
+    "type": "herb",
+    "url": "https://www.rareseeds.com/store/plants-seeds/herbs/rue"
+  },
+  {
+    "name": "Sage",
+    "slug": "sage",
+    "type": "herb",
+    "url": "https://www.rareseeds.com/store/plants-seeds/herbs/sage"
+  },
+  {
+    "name": "Thyme",
+    "slug": "thyme",
+    "type": "herb",
+    "url": "https://www.rareseeds.com/store/plants-seeds/herbs/thyme"
+  },
+  {
+    "name": "Marigold",
+    "slug": "marigold",
+    "type": "flower",
+    "url": "https://www.rareseeds.com/store/plants-seeds/flowers/marigold"
+  },
+  {
+    "name": "Sunflower",
+    "slug": "sunflower",
+    "type": "flower",
+    "url": "https://www.rareseeds.com/store/plants-seeds/flowers/sunflower"
+  },
+  {
+    "name": "Zinnia",
+    "slug": "zinnia",
+    "type": "flower",
+    "url": "https://www.rareseeds.com/store/plants-seeds/flowers/zinnia"
+  },
+  {
+    "name": "Cosmos",
+    "slug": "cosmos",
+    "type": "flower",
+    "url": "https://www.rareseeds.com/store/plants-seeds/flowers/cosmos"
+  },
+  {
+    "name": "Calendula",
+    "slug": "calendula",
+    "type": "flower",
+    "url": "https://www.rareseeds.com/store/plants-seeds/flowers/calendula"
+  }
+]
