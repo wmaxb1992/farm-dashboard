@@ -29,8 +29,8 @@ export const getSupabaseAdmin = () => {
   return _supabaseAdmin
 }
 
-// For backward compatibility
-export const supabaseAdmin = typeof window === 'undefined' ? getSupabaseAdmin() : null
+// For backward compatibility - lazy loaded to avoid build time issues
+export const supabaseAdmin = null // Will be created when needed via getSupabaseAdmin()
 
 // Types based on your schema
 export interface Farm {
