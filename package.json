@@ -6,6 +6,7 @@
     "build": "next build",
     "dev": "next dev",
     "start": "next start",
+    "test": "echo \"No tests configured\" && exit 0",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "lint:strict": "eslint . --ext .ts,.tsx,.js,.jsx --max-warnings 0",
