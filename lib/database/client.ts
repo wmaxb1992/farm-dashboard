@@ -31,8 +31,8 @@ export const getDatabase = () => {
   return _db
 }
 
-// Export db instance for convenience
-export const db = getDatabase()
+// Export db getter instead of instance to avoid build-time issues
+export const db = null // Use getDatabase() function instead
 
 // Server-side admin client
 let _supabaseAdmin: ReturnType<typeof createClient> | null = null
@@ -55,14 +55,5 @@ export const getSupabaseAdmin = () => {
   return _supabaseAdmin
 }
 
-// For backward compatibility in server contexts
-export const supabaseAdmin =
-  typeof window === 'undefined'
-    ? (() => {
-        try {
-          return getSupabaseAdmin()
-        } catch {
-          return null
-        }
-      })()
-    : null
+// For backward compatibility - lazy loaded to avoid build time issues
+export const supabaseAdmin = null // Use getSupabaseAdmin() instead
