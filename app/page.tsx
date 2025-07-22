@@ -1,18 +1,13 @@
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Leaf, Users, ShoppingCart, TrendingUp } from 'lucide-react'
+import { Users, ShoppingCart, TrendingUp } from 'lucide-react'
 
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-100">
       <div className="container mx-auto px-4 py-16">
         <div className="text-center mb-16">
-          <div className="flex justify-center mb-6">
-            <div className="bg-green-600 p-4 rounded-full">
-              <Leaf className="h-12 w-12 text-white" />
-            </div>
-          </div>
           <h1 className="text-4xl font-bold text-gray-900 mb-4">Radish Farm Dashboard</h1>
           <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
             Manage your farm, showcase your fresh produce, and connect directly with customers who
