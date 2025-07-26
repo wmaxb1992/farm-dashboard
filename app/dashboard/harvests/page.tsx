@@ -7,6 +7,9 @@ import { Badge } from '@/components/ui/badge'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Calendar, Leaf, TrendingUp, Package, Clock, AlertCircle } from 'lucide-react'
 import Link from 'next/link'
+import { useFarmStore } from '@/lib/stores/farm-store'
+import { useBatchesStore } from '@/lib/stores/batches-store'
+import { useFarmPlantings, useHarvestBatches } from '@/lib/hooks/use-farm-queries'
 
 interface Crop {
   id: string

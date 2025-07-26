@@ -17,6 +17,9 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog'
 import { DollarSign, TrendingUp, TrendingDown, Target, Clock, AlertTriangle } from 'lucide-react'
+import { useFarmStore } from '@/lib/stores/farm-store'
+import { usePricingStore } from '@/lib/stores/pricing-store'
+import { useBatchPricing, useUpdateBatchPricing } from '@/lib/hooks/use-farm-queries'
 
 interface BatchPricing {
   id: string
