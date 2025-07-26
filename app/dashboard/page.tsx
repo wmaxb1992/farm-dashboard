@@ -18,6 +18,8 @@ import {
   Package2,
 } from 'lucide-react'
 import Link from 'next/link'
+import { useFarmStore } from '@/lib/stores/farm-store'
+import { useOrders, useHarvestBatches, useFarmPlantings } from '@/lib/hooks/use-farm-queries'
 
 interface DashboardStats {
   totalOrders: number
@@ -70,79 +72,58 @@ export default function DashboardPage() {
   const [recentOrders, setRecentOrders] = useState<Order[]>([])
   const [upcomingHarvests, setUpcomingHarvests] = useState<PlantingSummary[]>([])
   const [lowStockBatches, setLowStockBatches] = useState<BatchSummary[]>([])
-  const [loading, setLoading] = useState(true)
 
-  // Use the farm ID that actually exists in your database
-  const farmId = '850e8400-e29b-41d4-a716-446655440002'
+  const { farmId } = useFarmStore()
+  const { data: orders = [], isLoading: ordersLoading } = useOrders(farmId || '')
+  const { data: batches = [], isLoading: batchesLoading } = useHarvestBatches(farmId || '')
+  const { data: plantings = [], isLoading: plantingsLoading } = useFarmPlantings(farmId || '')
+  
+  const loading = ordersLoading || batchesLoading || plantingsLoading
 
   useEffect(() => {
-    fetchDashboardData()
-  }, [])
-
-  const fetchDashboardData = async () => {
-    try {
-      // Fetch orders (existing API)
-      const ordersResponse = await fetch(`/api/orders?farm_id=${farmId}`)
-      const ordersData = await ordersResponse.json()
-      const orders = ordersData.orders || []
-
-      // Fetch harvest batches from our new API
-      const batchesResponse = await fetch(`/api/harvest-batches?farm_id=${farmId}`)
-      const batchesData = await batchesResponse.json()
-      const batches = batchesData.batches || []
-
-      // Fetch farm plantings from our new API
-      const plantingsResponse = await fetch(`/api/farm-plantings?farm_id=${farmId}`)
-      const plantingsData = await plantingsResponse.json()
-      const plantings = plantingsData.plantings || []
-
-      // Calculate stats from our new schema
-      const totalRevenue = orders.reduce((sum: number, order: Order) => sum + order.total, 0)
-      const totalHarvested = batches
-        .filter((batch: any) => batch.status === 'actual')
-        .reduce((sum: number, batch: any) => sum + (batch.quantity_harvested || 0), 0)
-
-      const activePlantings = plantings.filter(
-        (planting: any) => planting.status === 'active'
-      ).length
-      const lowStockCount = batches.filter(
-        (batch: any) => batch.quantity_available > 0 && batch.quantity_available < 10
-      ).length
-
-      setStats({
-        totalOrders: orders.length,
-        activeBatches: batches.filter((batch: any) => batch.quantity_available > 0).length,
-        totalRevenue: totalRevenue,
-        activePlantings: activePlantings,
-        totalHarvested: totalHarvested,
-        lowStockBatches: lowStockCount,
-      })
-
-      // Set recent orders (last 4)
-      setRecentOrders(orders.slice(0, 4))
-
-      // Set upcoming harvests (next 3 projected harvests)
-      const upcomingPlantings = plantings
-        .filter((planting: any) => planting.status === 'active' && planting.projected_harvest_date)
-        .sort(
-          (a: any, b: any) =>
-            new Date(a.projected_harvest_date).getTime() -
-            new Date(b.projected_harvest_date).getTime()
-        )
-        .slice(0, 3)
-      setUpcomingHarvests(upcomingPlantings)
-
-      // Set low stock batches (quantity < 10)
-      const lowStockBatches = batches
-        .filter((batch: any) => batch.quantity_available > 0 && batch.quantity_available < 10)
-        .slice(0, 3)
-      setLowStockBatches(lowStockBatches)
-
-      setLoading(false)
-    } catch (error) {
-      console.error('Error fetching dashboard data:', error)
-      setLoading(false)
+    if (!loading && orders && batches && plantings) {
+      calculateStats()
     }
+  }, [orders, batches, plantings, loading])
+
+  const calculateStats = () => {
+    const totalRevenue = orders.reduce((sum: number, order: any) => sum + (order.total || order.total_amount || 0), 0)
+    const totalHarvested = batches
+      .filter((batch: any) => batch.status === 'actual')
+      .reduce((sum: number, batch: any) => sum + (batch.quantity_harvested || batch.quantity || 0), 0)
+
+    const activePlantings = plantings.filter(
+      (planting: any) => planting.status === 'active' || planting.crop_status === 'active'
+    ).length
+    const lowStockCount = batches.filter(
+      (batch: any) => (batch.quantity_available || batch.quantity || 0) > 0 && (batch.quantity_available || batch.quantity || 0) < 10
+    ).length
+
+    setStats({
+      totalOrders: orders.length,
+      activeBatches: batches.filter((batch: any) => (batch.quantity_available || batch.quantity || 0) > 0).length,
+      totalRevenue: totalRevenue,
+      activePlantings: activePlantings,
+      totalHarvested: totalHarvested,
+      lowStockBatches: lowStockCount,
+    })
+
+    setRecentOrders(orders.slice(0, 4))
+
+    const upcomingPlantings = plantings
+      .filter((planting: any) => (planting.status === 'active' || planting.crop_status === 'active') && (planting.projected_harvest_date || planting.planting_date))
+      .sort(
+        (a: any, b: any) =>
+          new Date(a.projected_harvest_date || a.planting_date).getTime() -
+          new Date(b.projected_harvest_date || b.planting_date).getTime()
+      )
+      .slice(0, 3)
+    setUpcomingHarvests(upcomingPlantings)
+
+    const lowStockBatches = batches
+      .filter((batch: any) => (batch.quantity_available || batch.quantity || 0) > 0 && (batch.quantity_available || batch.quantity || 0) < 10)
+      .slice(0, 3)
+    setLowStockBatches(lowStockBatches)
   }
 
   if (loading) {

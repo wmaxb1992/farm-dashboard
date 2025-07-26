@@ -22,6 +22,9 @@ import {
 } from '@/components/ui/dialog'
 import { Plus, Sprout } from 'lucide-react'
 import AgGridPlantings from '@/components/ag-grid-plantings'
+import { useFarmStore } from '@/lib/stores/farm-store'
+import { usePlantingsStore } from '@/lib/stores/plantings-store'
+import { useFarmPlantings, useProducts, useAddPlanting, useUpdatePlanting } from '@/lib/hooks/use-farm-queries'
 
 interface Product {
   id: string
@@ -48,10 +51,16 @@ interface Planting {
 }
 
 export default function PlantingsPage() {
-  const [plantings, setPlantings] = useState<Planting[]>([])
-  const [products, setProducts] = useState<Product[]>([])
-  const [loading, setLoading] = useState(true)
+  const { farmId } = useFarmStore()
+  const { plantings, setPlantings } = usePlantingsStore()
   const [showAddDialog, setShowAddDialog] = useState(false)
+
+  const { data: plantingsData = [], isLoading: plantingsLoading, refetch } = useFarmPlantings(farmId || '')
+  const { data: products = [], isLoading: productsLoading } = useProducts()
+  const addPlantingMutation = useAddPlanting()
+  const updatePlantingMutation = useUpdatePlanting()
+
+  const loading = plantingsLoading || productsLoading
 
   const [newPlanting, setNewPlanting] = useState({
     product_id: '',
@@ -66,125 +75,68 @@ export default function PlantingsPage() {
     notes: '',
   })
 
-  const farmId = '850e8400-e29b-41d4-a716-446655440002'
-
   useEffect(() => {
-    fetchData()
-  }, [])
-
-  const fetchData = async () => {
-    try {
-      setLoading(true)
-      console.log('Starting to fetch data...')
-
-      // Fetch existing plantings
-      const plantingsResponse = await fetch(`/api/farm-plantings?farm_id=${farmId}`)
-      if (plantingsResponse.ok) {
-        const plantingsData = await plantingsResponse.json()
-        console.log('Fetched plantings data:', plantingsData)
-        console.log('Number of plantings:', plantingsData.plantings?.length || 0)
-
-        // Transform and clean up the data for AG Grid
-        const transformedPlantings = (plantingsData.plantings || []).map((planting: any) => ({
-          id: planting.id,
-          farm_variety_name:
-            planting.farm_variety_name || planting.variety_name || 'Unknown Variety',
-          variety_name: planting.variety_name || 'Unknown Variety',
-          planting_location: planting.planting_location || planting.location || '',
-          planting_date: planting.planting_date || planting.planted_date || '',
-          crop_status: planting.crop_status || 'planted',
-          growth_stage: planting.growth_stage || 'seedling',
-          total_estimated_yield: planting.total_estimated_yield || 0,
-          estimated_remaining_yield:
-            planting.estimated_remaining_yield || planting.remaining_yield || 0,
-          remaining_yield: planting.remaining_yield || planting.estimated_remaining_yield || 0,
-          planted_quantity: planting.planted_quantity || 0,
-          planted_area: planting.planted_area || 0,
-          planted_area_unit: planting.planted_area_unit || 'sq_ft',
-          notes: planting.notes || '',
-        }))
-
-        console.log('Transformed plantings:', transformedPlantings)
-        setPlantings(transformedPlantings)
-      } else {
-        console.error('Plantings API error:', plantingsResponse.status)
-      }
-
-      // Fetch available products/varieties for planting
-      const productsResponse = await fetch('/api/products')
-      if (productsResponse.ok) {
-        const productsData = await productsResponse.json()
-        console.log('Available products:', productsData)
-        console.log('Number of products:', productsData.products?.length || 0)
-        setProducts(productsData.products || [])
-      } else {
-        console.error('Products API response:', productsResponse.status)
-      }
-    } catch (err) {
-      console.error('Error fetching data:', err)
-    } finally {
-      setLoading(false)
-      console.log('Finished fetching data, loading set to false')
+    if (plantingsData) {
+      const transformedPlantings = plantingsData.map((planting: any) => ({
+        id: planting.id,
+        farm_variety_name:
+          planting.farm_variety_name || planting.variety_name || 'Unknown Variety',
+        variety_name: planting.variety_name || 'Unknown Variety',
+        planting_location: planting.planting_location || planting.location || '',
+        planting_date: planting.planting_date || planting.planted_date || '',
+        crop_status: planting.crop_status || 'planted',
+        growth_stage: planting.growth_stage || 'seedling',
+        total_estimated_yield: planting.total_estimated_yield || 0,
+        estimated_remaining_yield:
+          planting.estimated_remaining_yield || planting.remaining_yield || 0,
+        remaining_yield: planting.remaining_yield || planting.estimated_remaining_yield || 0,
+        planted_quantity: planting.planted_quantity || 0,
+        planted_area: planting.planted_area || 0,
+        planted_area_unit: planting.planted_area_unit || 'sq_ft',
+        notes: planting.notes || '',
+      }))
+      setPlantings(transformedPlantings)
     }
-  }
+  }, [plantingsData, setPlantings])
 
   const addPlanting = async () => {
     try {
-      const selectedProduct = products.find(p => p.id === newPlanting.product_id)
+      const selectedProduct = products.find((p: any) => p.id === newPlanting.product_id)
       if (!selectedProduct) {
         alert('Please select a valid product')
         return
       }
 
-      console.log('Adding planting with data:', {
+      await addPlantingMutation.mutateAsync({
         farm_id: farmId,
         variety_id: selectedProduct.variety_id,
         farm_variety_name: selectedProduct.variety_name,
-        ...newPlanting,
+        planting_location: newPlanting.planting_location,
+        planting_date: newPlanting.planted_date,
+        total_estimated_yield: parseFloat(newPlanting.total_estimated_yield),
+        harvest_frequency_days: parseInt(newPlanting.harvest_frequency_days),
+        crop_status: newPlanting.growth_stage,
+        planted_quantity: newPlanting.planted_quantity
+          ? parseInt(newPlanting.planted_quantity)
+          : null,
+        planted_area: newPlanting.planted_area ? parseFloat(newPlanting.planted_area) : null,
+        planted_area_unit: newPlanting.planted_area_unit,
+        notes: newPlanting.notes,
       })
 
-      const response = await fetch('/api/farm-plantings', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          farm_id: farmId,
-          variety_id: selectedProduct.variety_id,
-          farm_variety_name: selectedProduct.variety_name,
-          planting_location: newPlanting.planting_location,
-          planting_date: newPlanting.planted_date,
-          total_estimated_yield: parseFloat(newPlanting.total_estimated_yield),
-          harvest_frequency_days: parseInt(newPlanting.harvest_frequency_days),
-          crop_status: newPlanting.growth_stage,
-          planted_quantity: newPlanting.planted_quantity
-            ? parseInt(newPlanting.planted_quantity)
-            : null,
-          planted_area: newPlanting.planted_area ? parseFloat(newPlanting.planted_area) : null,
-          planted_area_unit: newPlanting.planted_area_unit,
-          notes: newPlanting.notes,
-        }),
+      setShowAddDialog(false)
+      setNewPlanting({
+        product_id: '',
+        planted_date: '',
+        total_estimated_yield: '',
+        harvest_frequency_days: '7',
+        growth_stage: 'planted',
+        planting_location: '',
+        planted_quantity: '',
+        planted_area: '',
+        planted_area_unit: 'sq_ft',
+        notes: '',
       })
-
-      if (response.ok) {
-        console.log('Planting added successfully')
-        fetchData() // Refresh the data
-        setShowAddDialog(false)
-        setNewPlanting({
-          product_id: '',
-          planted_date: '',
-          total_estimated_yield: '',
-          harvest_frequency_days: '7',
-          growth_stage: 'planted',
-          planting_location: '',
-          planted_quantity: '',
-          planted_area: '',
-          planted_area_unit: 'sq_ft',
-          notes: '',
-        })
-      } else {
-        const errorData = await response.json()
-        console.error('Error adding planting:', errorData)
-        alert(`Failed to add planting: ${errorData.error}`)
-      }
     } catch (err) {
       console.error('Error adding planting:', err)
       alert('Failed to add planting')
@@ -193,24 +145,11 @@ export default function PlantingsPage() {
 
   const handlePlantingUpdate = async (id: string, updatedData: Partial<Planting>) => {
     try {
-      console.log('Updating planting:', id, updatedData)
-
-      const response = await fetch('/api/farm-plantings', {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ id, ...updatedData }),
+      await updatePlantingMutation.mutateAsync({ 
+        id, 
+        farmId: farmId || '', 
+        ...updatedData 
       })
-
-      if (!response.ok) {
-        const errorData = await response.json()
-        throw new Error(errorData.error || 'Failed to update planting')
-      }
-
-      const result = await response.json()
-      console.log('Planting updated successfully:', result)
-
-      // Update local state
-      setPlantings(prev => prev.map(p => (p.id === id ? { ...p, ...updatedData } : p)))
     } catch (error) {
       console.error('Error updating planting:', error)
       throw error
@@ -261,7 +200,7 @@ export default function PlantingsPage() {
                       <SelectValue placeholder="Select variety" />
                     </SelectTrigger>
                     <SelectContent>
-                      {products.map(product => (
+                      {products.map((product: any) => (
                         <SelectItem key={product.id} value={product.id}>
                           {product.variety_name} ({product.name})
                         </SelectItem>
@@ -440,7 +379,7 @@ export default function PlantingsPage() {
           <AgGridPlantings
             plantings={plantings}
             onPlantingUpdate={handlePlantingUpdate}
-            onRefresh={fetchData}
+            onRefresh={refetch}
           />
         </CardContent>
       </Card>
